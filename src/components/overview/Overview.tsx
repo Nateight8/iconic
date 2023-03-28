@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Stack } from "@mui/material";
+import UserComponent from "../user/UserComponent";
 
 type Props = {};
 
@@ -9,9 +10,7 @@ function Overview({}: Props) {
       justifyContent="center"
       alignItems="center"
       sx={{ height: "20vh", width: "100%", color: "white" }}
-    >
-      <Typography variant="body1">Overview</Typography>
-    </Stack>
+    ></Stack>
   );
 }
 

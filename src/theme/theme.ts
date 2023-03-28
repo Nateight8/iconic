@@ -32,6 +32,32 @@ const theme = createTheme({
       },
     },
 
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: "outlined" },
+          style: {
+            border: "1px solid #C4C4C4",
+            color: "#FFFFFF",
+            marginInline: "0.5rem",
+            textTransform: "capitalize",
+            fontWeight: 300,
+            borderRadius: "0.5rem",
+          },
+        },
+        {
+          props: { variant: "contained" },
+          style: {
+            color: "#FFFFFF",
+            marginInline: "0.5rem",
+            textTransform: "capitalize",
+            fontWeight: 400,
+            borderRadius: "0.5rem",
+          },
+        },
+      ],
+    },
+
     MuiTab: {
       styleOverrides: {
         root: {

@@ -7,6 +7,8 @@ import TabPanel from "@mui/lab/TabPanel";
 import Overview from "../overview/Overview";
 import Account from "../account/Account";
 import Payment from "../payment/Payment";
+import Articles from "../articles/Articles";
+import Counter from "../countdown/Counter";
 
 type Props = {};
 
@@ -68,16 +70,16 @@ function TabComponent({}: Props) {
             <Tab label="Payment" value="4" />
           </TabList>
           {/* </Box> */}
-          <TabPanel value="1">
-            <Overview />
+          <TabPanel sx={{ padding: 0 }} value="1">
+            <Counter />
           </TabPanel>
-          <TabPanel value="2">
+          <TabPanel sx={{ padding: 0 }} value="2">
             <Account />
           </TabPanel>
-          <TabPanel value="3">
-            <Payment />
+          <TabPanel sx={{ padding: 0 }} value="3">
+            <Articles />
           </TabPanel>
-          <TabPanel value="4">
+          <TabPanel sx={{ padding: 0 }} value="4">
             <Payment />
           </TabPanel>
         </TabContext>
