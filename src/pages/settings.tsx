@@ -1,3 +1,4 @@
+import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/react";
 import React from "react";
 
@@ -9,7 +10,7 @@ function Home({}: Props) {
 
 export default Home;
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req }: GetServerSidePropsContext) {
   const session = await getSession({ req });
 
   if (!session) {
