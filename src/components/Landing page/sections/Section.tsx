@@ -8,7 +8,7 @@ function Section({}: Props) {
     <Stack
       justifyContent="center"
       alignItems="center"
-      sx={{ width: "100%", height: "100vh" }}
+      sx={{ width: "100%", height: { md: "100vh" } }}
     >
       <Box sx={{ color: "white" }}>
         <Box sx={{ paddingY: "1rem" }}>

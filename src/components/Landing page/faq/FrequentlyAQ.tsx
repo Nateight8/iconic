@@ -43,37 +43,39 @@ function FrequentlyAQ({}: Props) {
   ];
 
   return (
-    <Container maxWidth="md">
-      <Box
-        sx={{
-          height: "100vh",
-          width: "100%",
-          background: "",
-          marginY: "2rem",
-        }}
-      >
-        {data.map((item) => (
-          <Accordion
-            key={item.id}
-            expanded={expanded === item.id}
-            onChange={handleChange(item.id)}
-            sx={{ background: "white" }}
+    // <Container maxWidth="md">
+    <Box
+      sx={{
+        paddingY: "3rem",
+        background: "",
+        marginY: "2rem",
+        width: "100%",
+        maxWidth: "42rem",
+        marginX: "auto",
+      }}
+    >
+      {data.map((item) => (
+        <Accordion
+          key={item.id}
+          expanded={expanded === item.id}
+          onChange={handleChange(item.id)}
+          sx={{ background: "white" }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMore />}
+            aria-label="Expand"
+            aria-controls="-content"
+            id="-header"
           >
-            <AccordionSummary
-              expandIcon={<ExpandMore />}
-              aria-label="Expand"
-              aria-controls="-content"
-              id="-header"
-            >
-              <Typography variant="body1">{item.quest}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography variant="body2">{item.answer}</Typography>
-            </AccordionDetails>
-          </Accordion>
-        ))}
-      </Box>
-    </Container>
+            <Typography variant="body1">{item.quest}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography variant="body2">{item.answer}</Typography>
+          </AccordionDetails>
+        </Accordion>
+      ))}
+    </Box>
+    // </Container>
   );
 }
 

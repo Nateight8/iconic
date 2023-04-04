@@ -38,7 +38,11 @@ function Cards({}: Props) {
       <Stack
         justifyContent="center"
         alignItems="center"
-        sx={{ color: "white", paddingY: "6rem", padding: { md: "2rem" } }}
+        sx={{
+          color: "white",
+          paddingY: { xs: "3rem", md: "6rem" },
+          padding: { md: "2rem" },
+        }}
       >
         <Box sx={{ paddingBottom: "1.8rem" }}>
           <Typography
