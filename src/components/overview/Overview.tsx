@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Stack } from "@mui/material";
-import UserComponent from "../user/UserComponent";
+import UserComponent from "../user/UserAvatar";
 
 type Props = {};
 

@@ -1,8 +1,9 @@
 import React from "react";
-import { Typography, Box, Stack } from "@mui/material";
+import { Typography, Box, Stack, Paper } from "@mui/material";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import SwiperComp from "../slider/SwiperComp";
 
 type Props = {};
 
@@ -54,43 +55,53 @@ function Counter({}: Props) {
   }, []);
 
   return (
-    <Box sx={{ paddingTop: "2rem" }}>
-      <Stack
-        justifyContent="center"
-        sx={{
-          background: "#202022",
-          width: "100%",
-          minHeight: "14rem",
-          padding: { sm: "1.5rem 3rem " },
-          borderRadius: "0.5rem",
-          border: "1px solid rgba(255, 255, 255, 0.04)",
-        }}
-      >
-        <Box px={2}>
-          <Typography
-            variant="body1"
-            sx={{ color: "#BCBCBD", textAlign: "Center", p: 2.5 }}
+    <>
+      <Box sx={{ paddingBottom: "0.7rem" }}>
+        <Paper>
+          <Stack
+            justifyContent="center"
+            sx={{
+              width: "100%",
+              padding: "1rem",
+            }}
           >
-            Your next return on investment drops in:
-          </Typography>
-        </Box>
+            <Box px={2} pt={1}>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "#BCBCBD",
+                  textAlign: "Center",
+                  paddingX: { xs: "0.7rem", sm: 0 },
+                }}
+              >
+                Your next return on investment drops in:
+              </Typography>
+            </Box>
 
-        <List sx={listStyle}>
-          <ListItem>
-            <ListItemText primary={remainingTime.days} secondary="Days" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary={remainingTime.hours} secondary="Hours" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary={remainingTime.minutes} secondary="Minutes" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary={remainingTime.seconds} secondary="Seconds" />
-          </ListItem>
-        </List>
-      </Stack>
-    </Box>
+            <List sx={listStyle}>
+              <ListItem>
+                <ListItemText primary={remainingTime.days} secondary="Days" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary={remainingTime.hours} secondary="Hours" />
+              </ListItem>
+              <ListItem>
+                <ListItemText
+                  primary={remainingTime.minutes}
+                  secondary="Minutes"
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemText
+                  primary={remainingTime.seconds}
+                  secondary="Seconds"
+                />
+              </ListItem>
+            </List>
+          </Stack>
+        </Paper>
+      </Box>
+    </>
   );
 }
 

@@ -4,12 +4,27 @@ import { Fascinate_Inline, Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Box from "@mui/material/Box";
 import React, { useState } from "react";
-import { Typography, Toolbar, Container } from "@mui/material";
-import TabComponent from "@/components/tabs/TabComponent";
+import { Typography, IconButton, Container } from "@mui/material";
+import {
+  useSession,
+  signIn,
+  signOut,
+  getSession,
+  UseSessionOptions,
+} from "next-auth/react";
+import AuthUser from "@/components/user/AuthUser";
+import Guest from "@/components/user/Guest";
+import { LogoutOutlined } from "@mui/icons-material";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const options: UseSessionOptions<boolean> = {
+    required: false,
+  };
+
+  const { data: session } = useSession(options);
+
   return (
     <>
       <Head>
@@ -18,22 +33,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container maxWidth="lg">
-        <Box sx={{ marginTop: { xs: "1rem", md: "4.5rem" } }}>
-          <Typography
-            variant="h1"
-            sx={{
-              color: "white",
-              paddingBottom: "0.5rem",
-              fontWeight: { xs: 500, md: 700 },
-            }}
-          >
-            Main Dashboard
-          </Typography>
-
-          <TabComponent />
-        </Box>
-      </Container>
+      <Container maxWidth="lg">{session ? <AuthUser /> : <Guest />}</Container>
     </>
   );
 }

@@ -9,6 +9,7 @@ import Account from "../account/Account";
 import Payment from "../payment/Payment";
 import Articles from "../articles/Articles";
 import Counter from "../countdown/Counter";
+import SwiperComp from "../slider/SwiperComp";
 
 type Props = {};
 
@@ -71,6 +72,8 @@ function TabComponent({}: Props) {
           </TabList>
           {/* </Box> */}
           <TabPanel sx={{ padding: 0 }} value="1">
+            <SwiperComp />
+            <Counter />
             <Counter />
           </TabPanel>
           <TabPanel sx={{ padding: 0 }} value="2">

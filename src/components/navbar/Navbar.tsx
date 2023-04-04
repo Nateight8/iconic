@@ -3,15 +3,32 @@ import Navlinks from "./Navlinks";
 import Container from "@mui/material/Container";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { Box, Typography, Button, IconButton } from "@mui/material";
+import { Box, Typography, Button, IconButton, List } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
-import UserComponent from "../user/UserComponent";
+import UserComponent from "../user/UserAvatar";
+import {
+  PersonOutlined,
+  SettingsOutlined,
+  HelpOutline,
+  LoginOutlined,
+  HomeOutlined,
+  LogoutOutlined,
+} from "@mui/icons-material";
+import { usePathname } from "next/navigation";
+import MobileNav from "./MobileNav";
+import UserAvatar from "../user/UserAvatar";
+import { useSession, signIn, signOut, getSession } from "next-auth/react";
 
 type Props = {};
 
 function Navbar({}: Props) {
   const drawerWidth = "90%";
   const [open, setopen] = React.useState(false);
+  const path = usePathname();
+  const session = useSession();
+
+  console.log(session.status);
+
   return (
     <>
       <AppBar position="fixed" color="secondary" elevation={0}>
@@ -26,12 +43,9 @@ function Navbar({}: Props) {
             <Box sx={{ display: { xs: "none", md: "block" } }}>
               <Navlinks navlink="Home" url="/" />
               <Navlinks navlink="Settings" url="/settings" />
-              <Navlinks navlink="Help" url="/help" />
+              <Navlinks navlink="Log in" url="/signin" />
             </Box>
-            <Box sx={{ display: { xs: "none", md: "block" } }}>
-              <UserComponent />
-              {/* <Navlinks navlink="Log out" url="/log-out" /> */}
-            </Box>
+
             <Button
               sx={{ display: { xs: "block", md: "none" } }}
               onClick={() => setopen(true)}
@@ -47,6 +61,7 @@ function Navbar({}: Props) {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
+
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
@@ -56,11 +71,28 @@ function Navbar({}: Props) {
         anchor="left"
         open={open}
       >
-        <Navlinks navlink="Home" url="/" />
-        <Navlinks navlink="Settings" url="/settings" />
-        <Navlinks navlink="Help" url="/help" />
-        <Navlinks navlink="Profile" url="/profile" />
-        <Navlinks navlink="Log out" url="/log-out" />
+        <Toolbar />
+
+        <List>
+          <MobileNav url="/" navlink="Home" icon={<HomeOutlined />} />
+          <MobileNav
+            navlink="Profile"
+            url="/profile"
+            icon={<PersonOutlined />}
+          />
+          <MobileNav
+            navlink="Settings"
+            url="/settings"
+            icon={<SettingsOutlined />}
+          />
+
+          <MobileNav navlink="Help" url="/help" icon={<HelpOutline />} />
+          <MobileNav
+            navlink="Log out"
+            url="/log-out"
+            icon={<LoginOutlined />}
+          />
+        </List>
       </Drawer>
     </>
   );

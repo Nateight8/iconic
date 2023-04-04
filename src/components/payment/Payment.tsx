@@ -12,7 +12,11 @@ function Payment({}: Props) {
         sx={{ width: "100%", color: "white", marginBottom: "1rem" }}
       >
         <Box>
-          <Button variant="outlined" color="primary">
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{ marginRight: "0.5rem" }}
+          >
             Withdraw
           </Button>
           <Button variant="contained" color="primary">

@@ -19,7 +19,7 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: "#181819",
+          backgroundColor: "#181818",
         },
       },
     },
@@ -37,22 +37,35 @@ const theme = createTheme({
         {
           props: { variant: "outlined" },
           style: {
-            border: "1px solid #C4C4C4",
-            color: "#FFFFFF",
-            marginInline: "0.5rem",
+            border: "1px solid rgba(255, 255, 255, 0.6)",
+            color: "rgba(255, 255, 255, 0.6)",
+
             textTransform: "capitalize",
             fontWeight: 300,
-            borderRadius: "0.5rem",
+
+            // background: "#202022",
+            transition: "1s ease-in",
+            "&:hover": {
+              border: "1px solid rgba(255, 255, 255, 1)",
+              transition: "1s ease-out",
+              color: "rgba(255, 255, 255, 0.9)",
+            },
           },
         },
         {
           props: { variant: "contained" },
           style: {
             color: "#FFFFFF",
-            marginInline: "0.5rem",
+            // marginInline: "0.5rem",
             textTransform: "capitalize",
             fontWeight: 400,
-            borderRadius: "0.5rem",
+            // borderRadius: "0.5rem",
+            background: "rgb(253,71,67)",
+            transition: "1s ease-in",
+            "&:hover": {
+              background: "#FC5451",
+              transition: "1s ease-out",
+            },
           },
         },
       ],
@@ -64,6 +77,31 @@ const theme = createTheme({
           color: "white",
         },
       },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: "0.5rem",
+          background: "#202022",
+        },
+      },
+    },
+    MuiTextField: {
+      variants: [
+        {
+          props: { variant: "filled" },
+          style: {
+            // background: "#333645",
+            borderRadius: "0.25rem",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+
+            "& .MuiInputBase-input": { color: "white" },
+            "& .MuiFormLabel-root": {
+              color: "#81828C",
+            },
+          },
+        },
+      ],
     },
   },
 

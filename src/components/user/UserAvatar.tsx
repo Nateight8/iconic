@@ -2,10 +2,14 @@ import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import React from "react";
 import Typography from "@mui/material/Typography";
-
+import { useSession, signIn, signOut } from "next-auth/react";
 type Props = {};
 
-const UserComponent = (props: Props) => {
+const UserAvatar = (props: Props) => {
+  // const { data: session } = useSession(true);
+
+  // console.log(session?.user?.name);
+
   return (
     <>
       <Stack
@@ -26,25 +30,20 @@ const UserComponent = (props: Props) => {
             border: "1px solid rgba(255, 255, 255, 0.05)",
           }}
         />
-        <Stack sx={{ ml: 2 }}>
+        {/* <Stack sx={{ ml: 2 }}>
           <Typography
             variant="body1"
             sx={{
               color: "#737373",
+              textTransform: "capitalize",
             }}
           >
-            Wade Warren
+            {session?.user?.name}
           </Typography>
-          <Typography
-            variant="body1"
-            sx={{ fontSize: "18px", color: "#737373" }}
-          >
-            Bal: N27.5k
-          </Typography>
-        </Stack>
+        </Stack> */}
       </Stack>
     </>
   );
 };
 
-export default UserComponent;
+export default UserAvatar;
