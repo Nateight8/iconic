@@ -13,37 +13,25 @@ type Props = {
 function CardComp({ cardItem, index }: Props) {
   const { src, heading } = cardItem;
 
-  // const [clicked, setClicked] = React.useState();
-  const [setActive, setsetActive] = React.useState(null);
+  // // const [clicked, setClicked] = React.useState();
+  // const [setActive, setsetActive] = React.useState(null);
 
-  const handleClick = (index) => {
-    setsetActive(index);
-  };
+  // const handleClick = (index) => {
+  //   setsetActive(index);
+  // };
 
   return (
     <CardActionArea
       onClick={() => {}}
-      sx={
-        setActive === index
-          ? {
-              flex: 5,
-              marginY: "1rem",
-              backgroundImage: `${src}`,
-              position: "relative",
-              backgroundSize: "cover",
-              backgroundPosition: "center bottom",
-              borderRadius: "0.5rem",
-            }
-          : {
-              flex: 1,
-              marginY: "1rem",
-              backgroundImage: `${src}`,
-              position: "relative",
-              backgroundSize: "cover",
-              backgroundPosition: "center bottom",
-              borderRadius: "0.5rem",
-            }
-      }
+      sx={{
+        flex: 1,
+        marginY: "1rem",
+        backgroundImage: `${src}`,
+        position: "relative",
+        backgroundSize: "cover",
+        backgroundPosition: "center bottom",
+        borderRadius: "0.5rem",
+      }}
     >
       <Paper
         sx={{
