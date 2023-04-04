@@ -6,7 +6,7 @@ type Props = {};
 function Hero({}: Props) {
   return (
     <>
-      <Box sx={{ marginY: "6rem" }}>
+      <Box sx={{ marginY: { xs: "2.5rem", md: "6rem" } }}>
         <Stack
           justifyContent="center"
           alignItems="center"
@@ -23,7 +23,7 @@ function Hero({}: Props) {
             variant="h1"
             sx={{
               color: "white",
-              fontSize: { xs: "2rem", md: "3rem", lg: "4rem" },
+              fontSize: { xs: "2.5rem", md: "3rem", lg: "4rem" },
               fontWeight: 100,
               paddingBottom: { md: "1.65rem" },
             }}
