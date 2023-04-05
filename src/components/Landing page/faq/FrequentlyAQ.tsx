@@ -2,7 +2,7 @@ import React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import { Typography, Box, Container } from "@mui/material";
+import { Typography, Box, Stack, Container } from "@mui/material";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
 type Props = {};
@@ -43,39 +43,77 @@ function FrequentlyAQ({}: Props) {
   ];
 
   return (
-    // <Container maxWidth="md">
-    <Box
+    <Container
+      maxWidth="lg"
       sx={{
-        paddingY: "3rem",
-        background: "",
+        color: "white",
+        minHeight: "100svh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
         marginY: "2rem",
-        width: "100%",
-        maxWidth: "42rem",
-        marginX: "auto",
       }}
     >
-      {data.map((item) => (
-        <Accordion
-          key={item.id}
-          expanded={expanded === item.id}
-          onChange={handleChange(item.id)}
-          sx={{ background: "white" }}
+      <Box>
+        <Stack
+          sx={{
+            width: "100%",
+            marginTop: "2rem",
+          }}
         >
-          <AccordionSummary
-            expandIcon={<ExpandMore />}
-            aria-label="Expand"
-            aria-controls="-content"
-            id="-header"
+          <Typography
+            sx={{
+              fontSize: { xs: "2rem", md: "3rem", lg: "4rem" },
+              paddingY: "0.75rem",
+            }}
+            variant="h2"
           >
-            <Typography variant="body1">{item.quest}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography variant="body2">{item.answer}</Typography>
-          </AccordionDetails>
-        </Accordion>
-      ))}
-    </Box>
-    // </Container>
+            FAQ
+          </Typography>
+          <Typography variant="body2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+            alias. Lorem ipsum dolor sit amet.
+          </Typography>
+        </Stack>
+        <Box
+          sx={{
+            // paddingY: "3rem",
+            background: "",
+            marginY: "2rem",
+            width: "100%",
+            // height: "90vh",
+            marginX: "auto",
+          }}
+        >
+          {data.map((item) => (
+            <Accordion
+              key={item.id}
+              expanded={expanded === item.id}
+              onChange={handleChange(item.id)}
+              sx={{ color: "white" }}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMore sx={{ color: "white" }} />}
+                aria-label="Expand"
+                aria-controls="-content"
+                id="-header"
+              >
+                <Typography variant="body1">{item.quest}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography
+                  variant="body2"
+                  sx={{ opacity: 0.65, fontWeight: 300 }}
+                >
+                  {item.answer}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          ))}
+        </Box>
+      </Box>
+    </Container>
   );
 }
 

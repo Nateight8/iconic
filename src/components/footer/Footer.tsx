@@ -23,7 +23,7 @@ type Props = {};
 
 function Footer({}: Props) {
   return (
-    <Box sx={{ background: "", color: "white" }}>
+    <Box sx={{ background: "", color: "white", marginTop: "3rem" }}>
       <Subscribe />
       <Sitemap />
     </Box>

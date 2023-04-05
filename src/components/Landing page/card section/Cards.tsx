@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Typography, Stack, Box } from "@mui/material";
+import { Typography, Stack, Box, Container } from "@mui/material";
 import CardComp from "./CardComp";
 import Section from "../sections/Section";
 
@@ -34,7 +34,7 @@ function Cards({}: Props) {
     },
   ];
   return (
-    <>
+    <Container maxWidth="lg">
       <Stack
         justifyContent="center"
         alignItems="center"
@@ -79,7 +79,7 @@ function Cards({}: Props) {
           ))}
         </Box>
       </Stack>
-    </>
+    </Container>
   );
 }
 

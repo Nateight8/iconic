@@ -40,6 +40,8 @@ function CardComp({ cardItem, index }: Props) {
           borderRadius: "0.5rem",
           background: "transparent",
           height: "100%",
+          display: "flex",
+          alignItems: "end",
         }}
       >
         <>

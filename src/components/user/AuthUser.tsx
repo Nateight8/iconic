@@ -6,7 +6,9 @@ type Props = {};
 function AuthUser({}: Props) {
   return (
     <>
-      <Box sx={{ marginTop: { xs: "1rem", md: "4.5rem" } }}>
+      <Box
+        sx={{ marginTop: { xs: "1rem", md: "4.5rem" }, minHeight: "100svh" }}
+      >
         <Typography
           variant="h1"
           sx={{

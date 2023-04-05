@@ -27,7 +27,19 @@ function Navbar({}: Props) {
   const path = usePathname();
   const session = useSession();
 
-  console.log(session.status);
+  console.log(session.status === "unauthenticated");
+
+  const navigations = [
+    {
+      url: "/",
+      navlink: "Home",
+    },
+
+    {
+      url: "/settings",
+      navlink: "Settings",
+    },
+  ];
 
   return (
     <>
@@ -41,11 +53,26 @@ function Navbar({}: Props) {
               ICONICTRADE
             </Typography>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
-              <Navlinks navlink="Home" url="/" />
-              <Navlinks navlink="Settings" url="/settings" />
-              <Navlinks navlink="Log in" url="/signin" />
-            </Box>
+              {navigations.map((item) => {
+                const { navlink, url } = item;
+                return <Navlinks navlink={navlink} url={url} key={navlink} />;
+              })}
 
+              {session.status === "unauthenticated" ? (
+                <Navlinks navlink="Log in" url="/signin" />
+              ) : (
+                <Button
+                  onClick={() => {
+                    signOut();
+                  }}
+                  variant="text"
+                  sx={{ color: "white", textTransform: "uppercase" }}
+                >
+                  Log out
+                </Button>
+              )}
+            </Box>
+            {/* <Navlinks navlink="Log in" url="/signin" /> */}
             <Button
               sx={{ display: { xs: "block", md: "none" } }}
               onClick={() => setopen(true)}

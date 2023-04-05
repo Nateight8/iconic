@@ -91,9 +91,8 @@ const theme = createTheme({
         {
           props: { variant: "filled" },
           style: {
-            // background: "#333645",
             borderRadius: "0.25rem",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.)",
 
             "& .MuiInputBase-input": { color: "white" },
             "& .MuiFormLabel-root": {

@@ -1,11 +1,11 @@
 import React from "react";
-import { Typography, Stack, Box } from "@mui/material";
+import { Typography, Stack, Box, Container } from "@mui/material";
 
 type Props = {};
 
 function Hero({}: Props) {
   return (
-    <>
+    <Container maxWidth="lg">
       <Box sx={{ marginY: { xs: "2.5rem", md: "6rem" } }}>
         <Stack
           justifyContent="center"
@@ -74,12 +74,18 @@ function Hero({}: Props) {
         <Typography
           textAlign="center"
           variant="subtitle1"
-          sx={{ color: "white", marginTop: "3.5rem", paddingBottom: "3.5rem" }}
+          sx={{
+            color: "white",
+            marginTop: "3.5rem",
+            paddingBottom: "3.5rem",
+            opacity: 0.3,
+            textTransform: "uppercase",
+          }}
         >
           empowering the next generation of wealth builders
         </Typography>
       </Box>
-    </>
+    </Container>
   );
 }
 
