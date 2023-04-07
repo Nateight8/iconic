@@ -16,7 +16,7 @@ type Props = {};
 
 function Home({}: Props) {
   async function handleGoogleSignin() {
-    signIn("google", { callbackUrl: "https://iconic-nine.vercel.app" });
+    signIn("google", { callbackUrl: "http://localhost:3000" });
   }
 
   return (

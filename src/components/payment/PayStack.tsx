@@ -63,7 +63,6 @@ function PayStack({}: Props) {
                 name="amount"
                 as={TextField}
                 label="Enter amount"
-                type="number"
                 variant="outlined"
                 fullWidth
                 size="small"
