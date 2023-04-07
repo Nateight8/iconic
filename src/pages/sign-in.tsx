@@ -3,23 +3,20 @@ import {
   Typography,
   Stack,
   Box,
-  FormControl,
-  FormLabel,
   Divider,
   Grid,
   TextField,
   Button,
   Link,
 } from "@mui/material";
-import Container from "@mui/material/Container";
 import Layout from "@/components/layout/Layout";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 type Props = {};
 
 function Home({}: Props) {
   async function handleGoogleSignin() {
-    signIn("google", { callbackUrl: "http://localhost:3000" });
+    signIn("google", { callbackUrl: "https://iconic-nine.vercel.app" });
   }
 
   return (

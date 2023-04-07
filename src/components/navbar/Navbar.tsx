@@ -25,9 +25,9 @@ function Navbar({}: Props) {
   const drawerWidth = "90%";
   const [open, setopen] = React.useState(false);
   const path = usePathname();
-  const session = useSession();
+  const { data: session } = useSession();
 
-  console.log(session.status === "unauthenticated");
+  console.log(session);
 
   const navigations = [
     {
@@ -58,21 +58,21 @@ function Navbar({}: Props) {
                 return <Navlinks navlink={navlink} url={url} key={navlink} />;
               })}
 
-              {session.status === "unauthenticated" ? (
-                <Navlinks navlink="Log in" url="/signin" />
-              ) : (
+              {session ? (
                 <Button
                   onClick={() => {
                     signOut();
                   }}
                   variant="text"
-                  sx={{ color: "white", textTransform: "uppercase" }}
+                  sx={{ color: "white", textTransform: "capitalize" }}
                 >
                   Log out
                 </Button>
+              ) : (
+                <Navlinks navlink="Log in" url="/sign-in" />
               )}
             </Box>
-            {/* <Navlinks navlink="Log in" url="/signin" /> */}
+
             <Button
               sx={{ display: { xs: "block", md: "none" } }}
               onClick={() => setopen(true)}

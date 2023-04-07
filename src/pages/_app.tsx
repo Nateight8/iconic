@@ -1,5 +1,4 @@
 import Footer from "@/components/footer/Footer";
-import LandingNav from "@/components/navbar/LandingNav";
 import Navbar from "@/components/navbar/Navbar";
 import "@/styles/globals.css";
 import theme from "@/theme/theme";
@@ -16,19 +15,17 @@ export default function App({
 }: AppProps) {
   const router = useRouter();
 
-  const hide = router.pathname === "/signin" || router.pathname === "/register";
-  const landingNav = router.pathname === "/";
+  console.log(router);
 
   return (
     <SessionProvider session={session}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        {/* {landingNav ? <LandingNav /> : !hide && <Navbar />} */}
         <Navbar />
         <Component {...pageProps} />
         <Footer />
-      </ThemeProvider>{" "}
+      </ThemeProvider>
     </SessionProvider>
   );
 }
