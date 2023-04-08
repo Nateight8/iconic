@@ -36,7 +36,7 @@ export default function Home() {
 
       {/* {session ? <AuthUser /> : <Guest />} */}
 
-      <AuthUser />
+      <Guest />
     </>
   );
 }
